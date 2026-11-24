@@ -6,7 +6,12 @@
   "scripts": {
     "dev": "tsx watch src/app.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "prisma:generate": "prisma contract emit",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "prisma:seed": "tsx prisma/seed.ts",
+    "prisma:deploy": "tsx prisma/seed.ts"
   },
   "repository": {
     "type": "git",
@@ -23,11 +28,16 @@
   "dependencies": {
     "@fastify/cors": "^11.4.2",
     "@fastify/helmet": "^13.2.0",
+    "@prisma/adapter-pg": "^7.10.1",
+    "@prisma/client": "^7.10.1",
     "dotenv": "^18.0.10",
-    "fastify": "^5.12.8"
+    "fastify": "^5.12.8",
+    "pg": "^8.23.1"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "prisma": "^7.10.1",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   }
