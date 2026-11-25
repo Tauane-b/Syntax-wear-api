@@ -8,11 +8,16 @@ import helmet from '@fastify/helmet';
 import productRoutes from './routes/products.routes';
 import swagger from '@fastify/swagger';
 import scalar from '@scalar/fastify-api-reference';
+import jwt from "@fastify/jwt";
 
 const PORT = parseInt(process.env.PORT ?? '3000') || 3000;
 
 const fastify = Fastify({
   logger: true
+})
+
+fastify.register(jwt, {
+  secret: process.env.JWT_SECRET || 'segredo-de-desenvolvimento',
 })
 
 
